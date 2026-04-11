@@ -11,11 +11,16 @@
     "check-types": "next typegen && tsc --noEmit"
   },
   "dependencies": {
+    "@auth/prisma-adapter": "^2.11.1",
+    "@nero/db": "workspace:*",
     "@repo/ui": "workspace:*",
+    "bcryptjs": "^3.0.3",
+    "gsap": "^3.14.2",
+    "lucide-react": "^1.8.0",
     "next": "16.2.0",
+    "next-auth": "^4.24.13",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0",
-    "@nero/db": "workspace:*"
+    "react-dom": "^19.2.0"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
