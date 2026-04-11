@@ -14,13 +14,16 @@
     "@auth/prisma-adapter": "^2.11.1",
     "@nero/db": "workspace:*",
     "@repo/ui": "workspace:*",
+    "@tailwindcss/postcss": "^4.2.2",
     "bcryptjs": "^3.0.3",
     "gsap": "^3.14.2",
     "lucide-react": "^1.8.0",
     "next": "16.2.0",
     "next-auth": "^4.24.13",
+    "postcss": "^8.5.9",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "tailwindcss": "^4.2.2"
   },
   "devDependencies": {
     "@repo/eslint-config": "workspace:*",
