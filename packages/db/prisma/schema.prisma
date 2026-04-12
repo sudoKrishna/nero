@@ -21,6 +21,7 @@ model User {
   password      String?
   accounts      Account[]
   sessions      Session[]
+  profile       Profile?
   createdAt     DateTime  @default(now())
   updatedAt     DateTime  @updatedAt
 }
@@ -57,4 +58,39 @@ model VerificationToken {
   expires    DateTime
 
   @@unique([identifier, token])
+}
+
+model Profile {
+  id String @id @default(cuid())
+
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  firstName String
+  lastName  String
+  location  String
+
+  role       String
+  experience String
+
+  isStudent Boolean @default(false)
+
+  // Education
+  school          String?
+  graduationMonth String?
+  graduationYear  String?
+  majors          String[]
+  degree          String?
+
+  // Work
+  jobTitle   String?
+  company    String?
+  unemployed Boolean @default(false)
+
+  // Links
+  linkedin String?
+  website  String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
