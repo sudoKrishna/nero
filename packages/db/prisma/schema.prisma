@@ -13,17 +13,18 @@ datasource db {
 }
 
 model User {
-  id            String    @id @default(cuid())
+  id            String      @id @default(cuid())
   name          String?
-  email         String?   @unique
+  email         String?     @unique
   emailVerified DateTime?
   image         String?
   password      String?
   accounts      Account[]
   sessions      Session[]
   profile       Profile?
-  createdAt     DateTime  @default(now())
-  updatedAt     DateTime  @updatedAt
+  preference    Preference?
+  createdAt     DateTime    @default(now())
+  updatedAt     DateTime    @updatedAt
 }
 
 model Account {
@@ -93,4 +94,19 @@ model Profile {
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
+}
+
+model Preference {
+  id String @id @default(cuid())
+
+  userId String @unique
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  jobSearch       Boolean @default(false)
+  jobinterested   Boolean @default(false)
+  desiredsalary   String
+  role            String
+  location        String
+  usauthorization Boolean @default(false)
+  companiessizes  Boolean @default(false)
 }
